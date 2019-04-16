@@ -1,0 +1,26 @@
+/* ----------------------------------------
+Layout
+ページを構成するヘッダーやメインのコンテンツエリア、
+サイドバーやフッターといったプロジェクト共通のコンテナーブロックのスタイルを定義します。
+header/main/sidebar/footer...
+---------------------------------------- */
+.l- {
+  &footer {
+    position: relative;
+    background-color: $color-usually;
+
+    &_inner {
+      color: #fff;
+    }
+
+    &_pagetop {
+      display: none;
+      z-index: 98;
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      transition: visibility 200ms 0s ease;
+    }
+
+  }
+}

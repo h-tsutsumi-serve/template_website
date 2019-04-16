@@ -1,0 +1,581 @@
+/* ----------------------------------------
+Component
+再利用できるパターンとして、小さな単位のモジュールを定義します。
+grid/button/form/media...
+---------------------------------------- */
+
+.c- {
+  &area {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  &inner {
+    box-sizing: border-box;
+    width: $width-base + px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &box {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    &-flow {
+      margin-bottom: 2.4em;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 13px 0 13px;
+        border-color: darken($color-rarely, 15%) transparent transparent transparent;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1.6em;
+      }
+
+      &:last-of-type {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &title {
+    margin: 0;
+    font-size: $font-size-xl;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &subTitle {
+    margin: 0;
+    font-size: $font-size-l;
+    font-weight: bold;
+
+    &-iconSquare {
+      position: relative;
+      padding-left: 20px;
+      line-height: 1.2em;
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 1.2em;
+        background-color: $color-usually;
+        content: '';
+      }
+    }
+  }
+
+  &lead {
+    display: inline-block;
+    min-width: 100px;
+    margin: 0;
+    padding: 10px 15px;
+    border: solid 1px $color-main;
+    background-color: #fff;
+    color: $color-main;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &ruby {
+    font-size: $font-size-s;
+    line-height: 1.2;
+  }
+
+  &strong {
+    font-size: $font-size-l;
+    font-weight: bold;
+  }
+
+  &note {
+    line-height: 1.8;
+    padding-bottom: 3px;
+    border-bottom: solid 1px #000;
+  }
+
+  &paragraph {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  &definition {
+    $self: &;
+    margin: 0;
+    overflow: hidden;
+
+    &_title {
+      box-sizing: border-box;
+      font-weight: bold;
+
+      @include tbpc {
+        float: left;
+        width: 90px;
+        margin-right: 10px;
+
+        &:not(:last-of-type) {
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    &_description {
+      box-sizing: border-box;
+      margin-left: 0;
+
+      &:not(:last-of-type) {
+        margin-bottom: 15px;
+      }
+
+      @include tbpc {
+        float: left;
+        width: calc(100% - 100px);
+      }
+    }
+
+    &-accent {
+      #{$self}_title {
+        padding: 5px 15px;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      #{$self}_description {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  &order {
+    $self: &;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: li;
+
+    #{$self} > &_list {
+      padding-left: 25px;
+      position: relative;
+
+      &::before {
+        counter-increment: li;
+        display: block;
+        content: counter(li)'.';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &-brackets {
+      > #{$self}_list {
+        padding-left: 40px;
+
+        &::before {
+          content: '（'counter(li)'）';
+        }
+      }
+    }
+
+    &-circle {
+      > #{$self}_list {
+        padding-left: 35px;
+        line-height: 30px;
+
+        &::before {
+          content: counter(li);
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border-radius: 50%;
+          background: $color-usually;
+          color: #fff;
+          text-align: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &unorder {
+    $self: &;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+
+    #{$self} > &_list {
+      padding-left: 20px;
+      position: relative;
+
+      &::before {
+        display: block;
+        content: '◆';
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: darken($color-main, 15%);
+      }
+    }
+
+    &-caution {
+      > #{$self}_list {
+        &::before {
+          content: '※';
+        }
+      }
+    }
+
+    &-dotted {
+      > #{$self}_list {
+        &::before {
+          content: '・';
+        }
+      }
+    }
+  }
+
+  &table {
+    $self: &;
+    display: table;
+    width: 100%;
+
+    &_item {
+      background-color: #fff;
+      margin-top: -1px;
+    }
+
+    &_title,
+    &_description {
+      display: table-cell;
+      border: solid 1px $color-dark;
+      padding: 8px 25px;
+    }
+
+    &_title {
+      background-color: $color-main;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+
+      &-accent {
+        background-color: darken($color-main, 5%);
+      }
+    }
+
+    @include sp {
+      display: block;
+
+      &_inner,
+      &_item,
+      &_title,
+      &_description {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      &_item {
+        border: 0;
+        margin-top: 0;
+      }
+
+      &_title,
+      &_description {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        text-align: left;
+        border: none;
+      }
+    }
+
+    &-row {
+      #{$self}_item {
+        border-top: solid 1px $color-main;
+        border-bottom: solid 1px $color-main;
+
+        @include sp {
+          border: none;
+        }
+      }
+
+      #{$self}_title,
+      #{$self}_description {
+        border: none;
+      }
+
+      #{$self}_title {
+        font-weight: bold;
+
+        @include pc {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  &grid {
+    $self: &;
+    display: flex;
+
+    &_item {
+      &:not(:last-of-type) {
+        margin-right: 15px;
+      }
+
+      &-liquid {
+        flex: 1;
+      }
+
+      &-row2 {
+        width: 50%;
+      }
+
+      &-row3 {
+        width: 33.33%;
+      }
+
+      &-alignCenter {
+        align-self: center;
+      }
+    }
+
+    &-reverse {
+      flex-direction: row-reverse;
+
+      > #{$self}_item {
+        &:not(:last-of-type) {
+          margin-right: 0;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    &-wrap {
+      flex-wrap: wrap;
+      margin-bottom: -15px;
+
+      > #{$self}_item {
+        box-sizing: border-box;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 15px;
+      }
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-onlyPc {
+      @include sptb {
+        display: block;
+
+        > #{$self}_item {
+          &:not(:last-of-type) {
+            margin-right: 0;
+            margin-bottom: 15px;
+            margin-left: 0;
+          }
+        }
+
+        &#{$self}-wrap {
+          margin-bottom: 0;
+        }
+
+        > #{$self}_item-row2 {
+          width: 100%;
+        }
+
+        > #{$self}_item-row3 {
+          width: 100%;
+        }
+      }
+    }
+
+    &-onlyTbPc {
+      @include sp {
+        display: block;
+
+        > #{$self}_item {
+          &:not(:last-of-type) {
+            margin-right: 0;
+            margin-bottom: 15px;
+            margin-left: 0;
+          }
+        }
+
+        &#{$self}-wrap {
+          margin-bottom: 0;
+        }
+
+        > #{$self}_item-row2 {
+          width: 100%;
+        }
+
+        > #{$self}_item-row3 {
+          width: 100%;
+        }
+      }
+
+      @include tb {
+        > #{$self}_item-row3 {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  &hamburger {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: $color-usually;
+    cursor: pointer;
+
+    > span {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 200ms 0s ease;
+      position: absolute;
+      left: 9px;
+      color: #392b1d;
+
+      &:nth-child(1) {
+        top: 11px;
+      }
+
+      &:nth-child(2) {
+        top: 18px;
+      }
+
+      &:nth-child(3) {
+        bottom: 13px;
+      }
+    }
+
+    &.is-close > span {
+      &:nth-child(1) {
+        transform: translateY(7px) rotate(-45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-7px) rotate(45deg);
+      }
+    }
+  }
+
+  &btn {
+    min-width: 160px;
+    display: inline-block;
+    background-color: $color-usually;
+    padding: 0.6em 1.6em;
+    color: #fff !important;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      background-color: darken($color-usually, 10%);
+      color: #fff;
+    }
+
+    &-small {
+      min-width: 80px;
+      font-size: $font-size-xs;
+      text-align: center;
+    }
+
+    &-round {
+      border-radius: 50px;
+      border-bottom: solid 3px darken($color-usually, 10%);
+
+      &:hover {
+        margin-top: 3px;
+        border-bottom: none;
+      }
+    }
+
+    &-arrow {
+      position: relative;
+      padding-right: 2.4em;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 1.2em;
+        @include arrow(#fff);
+        content: '';
+      }
+    }
+  }
+
+  &icon {
+    &-arrow {
+      @include arrow(#fff);
+    }
+
+    &-circle {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 50%;
+      background: $color-usually;
+      color: #fff;
+      text-align: center;
+      font-style: normal;
+    }
+  }
+
+  &copyright {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 1.2rem;
+
+    &-reverse {
+      background-color: $color-main;
+      color: #fff;
+    }
+  }
+
+  &block {
+    &-small {
+      margin-bottom: 15px;
+    }
+
+    &-middle {
+      margin-bottom: 30px;
+    }
+
+    &-large {
+      margin-bottom: 45px;
+    }
+  }
+}

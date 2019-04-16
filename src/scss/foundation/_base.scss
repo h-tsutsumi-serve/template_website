@@ -1,0 +1,42 @@
+/* ----------------------------------------
+Foundation - base -
+プロジェクトにおける基本的なスタイルを定義します。
+ページの下地としての全体の背景や、基本的なタイポグラフィなどが該当します。
+---------------------------------------- */
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  color: $color-dark;
+  font-size: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, "メイリオ", sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+main {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  -webkit-backface-visibility: hidden;
+  vertical-align: bottom;
+}
+
+svg {
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+address {
+  font-style: normal;
+}

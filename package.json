@@ -1,0 +1,30 @@
+{
+  "name": "Gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "css-declaration-sorter": "^4.0.1",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^0.6.1",
+    "npm": "^6.7.0",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "start": "gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "html5": "^1.0.5",
+    "node-sass-package-importer": "^5.3.0",
+    "normalize.css": "^8.0.1",
+    "reset": "^0.1.0"
+  }
+}

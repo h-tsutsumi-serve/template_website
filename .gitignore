@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+
+node_modules/
+
+static/cgi/freo/database/
+static/cgi/freo/files/
+static/cgi/freo/configs/plugins/password.ini
+static/cgi/freo/templates_c/
+
+static/cgi/mailformpro/mailformpro/data/
+static/cgi/mailformpro/iplogs/
