@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+# https
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# no www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+
+# no index.html
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} index\.(html)
+RewriteRule ^index\.(html|php)$ / [R=301,L]
+RewriteRule ^(.*)/index\.(html)$ /$1/ [R=301,L]
+</IfModule>
+
+Options +ExecCGI
+AddType text/html cgi
+AddHandler cgi-script cgi
