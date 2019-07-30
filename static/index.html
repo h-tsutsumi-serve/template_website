@@ -3,41 +3,297 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>○○保育園</title>
-  <meta name="description" content="○○○○にある、○○○。園の概要や特色・行事、毎日のすごし方、定款等の情報を公開しています。">
+  <title></title>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-
   <link rel="stylesheet" href="./assets/css/app.css">
+  <link rel="stylesheet" href="./assets/css/swiper.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho&amp;subset=japanese" rel="stylesheet">
 
+  <style>
+    h1 {
+      text-align: center;
+      margin: 60px 0 20px;
+    }
+
+    h3 {
+      margin-top: 80px;
+    }
+
+    hr {
+      display: block;
+      height: 4px;
+      background-color: #f8f8f9;
+      border: none;
+      margin: 40px 0;
+    }
+  </style>
 </head>
 
 <body>
   <header class="l-header">
+    <h1><a href="./"><img src="https://placehold.jp/240x80.png" alt=""></a></h1>
+    <div id="js-gnavMenu" class="l-header_hamburger c-hamburger u-display-sptb"><span></span><span></span><span></span></div>
   </header>
 
 
   <nav id="js-gnav" class="l-gnav">
+    <ul class="l-gnav_inner">
+      <li class="l-gnav_list"><a class="l-gnav_link" href="">園の概要</a></li>
+      <li class="l-gnav_list"><a class="l-gnav_link" href="">園の1日</a></li>
+      <li class="l-gnav_list"><a class="l-gnav_link" href="">年間行事</a></li>
+      <li class="l-gnav_list"><a class="l-gnav_link" href="">お知らせ</a></li>
+      <li class="l-gnav_list"><a class="l-gnav_link" href="">アクセス</a></li>
+      <li class="l-gnav_list"><a class="l-gnav_link" href="">情報公開</a></li>
+    </ul>
   </nav>
 
 
-  <main class="l-container c-area">
-    <div class="c-inner p-inner" style="padding: 1000px 0;">
-      <h2 class="c-title">title</h2>
+  <main class="l-container">
+    <div class="top-slider">
+      <div class="top-slider_container swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img class="u-img-response" src="./assets/images/top/mv_photo_01@2x.jpg"></div>
+          <div class="swiper-slide"><img class="u-img-response" src="./assets/images/top/mv_photo_02@2x.jpg"></div>
+          <div class="swiper-slide"><img class="u-img-response" src="./assets/images/top/mv_photo_03@2x.jpg"></div>
+        </div>
+      </div>
     </div>
+
+    <div class="c-inner">
+      <h3 class="c-subTitle c-subTitle-iconSquare">box</h3>
+      <div class="c-box">sample</div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">box-flow</h3>
+      <div>
+        <div class="c-box c-box-flow">sample</div>
+        <div class="c-box c-box-flow">sample</div>
+        <div class="c-box c-box-flow">sample</div>
+      </div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">box-scroll</h3>
+      <div class="c-box-scroll">
+        <div style="width: 2000px;">テーブルや画像等、横幅固定のコンテンツを横スクロールさせたい時に</div>
+      </div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">subTitle</h3>
+      <div class="c-subTitle">sample</div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">subTitle-iconSquare</h3>
+      <div class="c-subTitle c-subTitle-iconSquare" style="font-size: 1.8rem;">font-size 1.8rem</div>
+      <div class="c-subTitle c-subTitle-iconSquare" style="font-size: 2rem;">font-size 2rem</div>
+      <div class="c-subTitle c-subTitle-iconSquare" style="font-size: 3rem">font-size 3rem</div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">lead</h3>
+      <div class="c-lead">sample</div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">ruby</h3>
+      <div class="c-ruby">sample</div>
+      <small class="c-ruby">sample</small>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">strong</h3>
+      <strong class="c-strong">sample</strong>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">paragraph</h3>
+      <p class="c-paragraph">sample</p>
+      <p class="c-paragraph">sample</p>
+      <p class="c-paragraph">sample</p>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">definition</h3>
+      <dl class="c-definition">
+        <dt class="c-definition_title">sample</dt>
+        <dd class="c-definition_description">sample</dd>
+        <dt class="c-definition_title">sample</dt>
+        <dd class="c-definition_description">sample</dd>
+      </dl>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">definition-line</h3>
+      <dl class="c-definition c-definition-line">
+        <dt class="c-definition_title">sample</dt>
+        <dd class="c-definition_description">sample</dd>
+        <dt class="c-definition_title">sample</dt>
+        <dd class="c-definition_description">sample</dd>
+      </dl>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">order</h3>
+      <ol class="c-order">
+        <li class="c-order_list">
+          テキストテキストテキストテキストテキストテキストテキスト<br>
+          テキストテキストテキストテキストテキストテキスト<br>
+          テキストテキストテキストテキストテキストテキストテキストテキスト<br>
+          テキストテキストテキストテキストテキスト
+        </li>
+        <li class="c-order_list">テキストテキストテキストテキストテキストテキスト</li>
+        <li class="c-order_list">sample</li>
+        <li class="c-order_list">sample</li>
+      </ol>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">order-brackets</h3>
+      <ol class="c-order c-order-brackets">
+        <li class="c-order_list">sample</li>
+        <li class="c-order_list">sample</li>
+        <li class="c-order_list">sample</li>
+        <li class="c-order_list">sample</li>
+      </ol>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">order-circle</h3>
+      <ol class="c-order c-order-circle" style="margin-bottom: 30px;">
+        <li class="c-order_list" style="font-size: 2rem;">テキストテキスト<br>テキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキスト<br>テキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+        <li class="c-order_list">テキストテキストテキストテキスト</li>
+      </ol>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">unorder</h3>
+      <ul class="c-unorder">
+        <li class="c-unorder_list" style="font-size: 2rem;">テキスト<br>テキスト</li>
+        <li class="c-unorder_list">sample</li>
+        <li class="c-unorder_list">sample</li>
+      </ul>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">unorder-caution</h3>
+      <ul class="c-unorder c-unorder-caution">
+        <li class="c-unorder_list" style="font-size: 2rem;">テキスト<br>テキスト</li>
+        <li class="c-unorder_list">sample</li>
+        <li class="c-unorder_list">sample</li>
+      </ul>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">unorder-dotted</h3>
+      <ul class="c-unorder c-unorder-dotted">
+        <li class="c-unorder_list" style="font-size: 2rem;">テキスト<br>テキスト</li>
+        <li class="c-unorder_list">sample</li>
+        <li class="c-unorder_list">sample</li>
+      </ul>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">table</h3>
+      <table class="c-table">
+        <tbody class="c-table_inner">
+          <tr class="c-table_item">
+            <th class="c-table_title" colspan="3">sample</th>
+          </tr>
+          <tr class="c-table_item">
+            <th class="c-table_title">sample</th>
+            <td class="c-table_description">sample</td>
+            <td class="c-table_description">sample</td>
+          </tr>
+          <tr class="c-table_item">
+            <th class="c-table_title">sample</th>
+            <td class="c-table_description">sample</td>
+            <td class="c-table_description">sample</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">table-response</h3>
+      <p class="c-paragraph">スマホ時に、縦並びにスタイルが変化</p>
+      <table class="c-table c-table-response">
+        <tbody class="c-table_inner">
+          <tr class="c-table_item">
+            <th class="c-table_title" colspan="3">sample</th>
+          </tr>
+          <tr class="c-table_item">
+            <th class="c-table_title">sample</th>
+            <td class="c-table_description">sample</td>
+            <td class="c-table_description">sample</td>
+          </tr>
+          <tr class="c-table_item">
+            <th class="c-table_title">sample</th>
+            <td class="c-table_description">sample</td>
+            <td class="c-table_description">sample</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">grid-col2</h3>
+      <div class="c-grid c-grid-col2">
+        <div class="c-box">1sample<br>1sample</div>
+        <div class="c-box">2sample</div>
+        <div class="c-box">3sample</div>
+      </div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">grid-col3</h3>
+      <div class="c-grid c-grid-col3">
+        <div class="c-box">1sample<br>1sample</div>
+        <div class="c-box">2sample</div>
+        <div class="c-box">3sample</div>
+        <div class="c-box">4sample</div>
+      </div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">grid-onlyTbPc</h3>
+      <div class="c-grid c-grid-col2 c-grid-onlyTbPc">
+        <div class="c-box">1sample</div>
+        <div class="c-box">2sample</div>
+      </div>
+
+      <hr>
+
+      <div class="c-grid c-grid-col3 c-grid-onlyTbPc">
+        <div class="c-box">1sample</div>
+        <div class="c-box">2sample</div>
+        <div class="c-box">3sample</div>
+      </div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">grid-onlyPc</h3>
+      <div class="c-grid c-grid-col2 c-grid-onlyPc">
+        <div class="c-box">1sample</div>
+        <div class="c-box">2sample</div>
+      </div>
+
+      <hr>
+
+      <div class="c-grid c-grid-col3 c-grid-onlyPc">
+        <div class="c-box">1sample</div>
+        <div class="c-box">2sample</div>
+        <div class="c-box">3sample</div>
+      </div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">hamburger</h3>
+      <div class="c-hamburger"><span></span><span></span><span></span></div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">hamburger is-close</h3>
+      <div class="c-hamburger is-close"><span></span><span></span><span></span></div>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">btn</h3>
+      <a class="c-btn" href="./index.html">sample</a>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">btn-round</h3>
+      <a class="c-btn c-btn-round" href="./index.html">sample</a>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">btn-arrow</h3>
+      <a class="c-btn c-btn-arrow" href="./index.html" style="font-size: 1rem;">sample</a>
+      <a class="c-btn c-btn-arrow" href="./index.html">sample</a>
+      <a class="c-btn c-btn-arrow" href="./index.html" style="font-size: 4rem;">sample</a>
+
+      <h3 class="c-subTitle c-subTitle-iconSquare">btn-shadow</h3>
+      <a class="c-btn c-btn-round c-btn-shadow" href="./index.html">sample</a>
+      <a class="c-btn c-btn-shadow" href="./index.html">sample</a>
+
+
+    </div>
+    <!--/.c-inner-->
   </main>
 
 
-  <footer class="l-footer">
-    <div class="l-footer_inner c-inner">
-      <div class="u-align-center">株式会社サーヴ</div>
+  <footer class="l-footer c-area">
+    <div class="c-inner">
+      <address>住所<br>TEL：<span class="js-tel">000-000-0000</span><span class="u-display-tbpc">　</span><br class="u-display-sp">FAX：000-000-0000</address>
+      <div class="c-copyright">&copy;2019 sample.</div>
     </div>
-    <div id="js-pagetop" class="l-footer_pagetop">pagetop</div>
+    <div id="js-pagetop" class="c-pagetop c-pagetop-fixed"><img src="./assets/images/common/pagetop.svg" alt=""></div>
   </footer>
 
 
   <script src="./assets/js/jquery-3.2.1.min.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/swiper.min.js"></script>
+  <script src="./assets/js/top.js"></script>
 </body>
 
 </html>

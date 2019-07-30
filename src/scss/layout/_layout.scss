@@ -5,22 +5,141 @@ Layout
 header/main/sidebar/footer...
 ---------------------------------------- */
 .l- {
-  &footer {
+  &header {
     position: relative;
-    background-color: $color-usually;
+
+    &_hamburger {
+      z-index: 100;
+      position: fixed;
+      top: 0;
+      right: 15px;
+    }
+  }
+
+  &gnav {
+    $self: &;
+    line-height: 1.2;
+
+    @include sptb {
+      display: flex;
+      box-sizing: border-box;
+      z-index: 99;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 40px 15px;
+      overflow-y: auto;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgba($color-base, .95);
+      transition: left 400ms 0s ease;
+    }
+
+    &.is-enable {
+      left: 0;
+    }
+
+    &.is-fixed {
+      @include pc {
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, .9);
+      }
+    }
 
     &_inner {
-      color: #fff;
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      @include pc {
+        display: flex;
+        width: calc(100% - 30px);
+        max-width: $width-base + px;
+        margin: 0 auto;
+      }
     }
 
-    &_pagetop {
-      display: none;
-      z-index: 98;
-      position: absolute;
-      right: 15px;
-      cursor: pointer;
-      transition: visibility 200ms 0s ease;
+    &_list {
+      text-align: center;
+
+      @include pc {
+        flex: 1;
+        align-self: center;
+        position: relative;
+
+        &::before {
+          display: block;
+          content: '';
+          width: 1px;
+          height: 10px;
+          background-color: $color-usually;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+
+        &:last-of-type {
+          &::after {
+            display: block;
+            content: '';
+            width: 1px;
+            height: 10px;
+            background-color: $color-usually;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+          }
+        }
+      }
     }
 
+    &_link {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      padding-top: 35px;
+      padding-bottom: 35px;
+      @include webfont;
+      color: $color-dark;
+      text-decoration: none;
+
+      @include sptb {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      &:hover {
+        background-color: $color-base;
+      }
+    }
+  }
+
+  &container {
+    padding-bottom: 100px;
+    @include sptb {
+      /* スマホ・タブレット時、jsによるmargin-top付与を強制的に打消し */
+      margin-top: 0 !important;
+    }
+  }
+
+  &footer {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    border-top: solid 1px $color-main;
+    letter-spacing: 0.1em;
+    line-height: 2;
+    text-align: center;
   }
 }

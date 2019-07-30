@@ -4,6 +4,13 @@ Foundation - base -
 ページの下地としての全体の背景や、基本的なタイポグラフィなどが該当します。
 ---------------------------------------- */
 
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -19,6 +26,15 @@ body {
 
 main {
   display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
 table {
@@ -37,6 +53,6 @@ svg {
   transform: translateZ(0);
 }
 
-address {
-  font-style: normal;
+a {
+  color: $color-usually;
 }

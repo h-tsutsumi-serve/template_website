@@ -8,12 +8,12 @@ $font-size-l: 1.8rem;
 $font-size-xl: 2.0rem;
 
 
-$color-base: #fff !default;
-$color-main: #ebf5f7 !default;
-$color-usually: #4bb9c3 !default;
-$color-accent: #ffd700 !default;
-$color-rarely: #00be7d !default;
+$color-base: #f8f8f9 !default;
+$color-main: #d4d4d4 !default;
 $color-dark: #414141 !default;
+$color-usually: #5ac6e2 !default;
+$color-accent: #00be7d !default;
+$color-rarely: #ffefb4 !default;
 
 $width-base: 1020;
 
@@ -22,10 +22,10 @@ $img-path: "../images/";
 
 //メディアクエリ
 $sp: "only screen and (max-width:480px)";
-$sptb: "only screen and (max-width:780px)";
-$tb: "only screen and (min-width:481px) and (max-width:780px)";
+$sptb: "only screen and (max-width:768px)";
+$tb: "only screen and (min-width:481px) and (max-width:768px)";
 $tbpc: "only screen and (min-width:481px)";
-$pc: "only screen and (min-width:781px)";
+$pc: "only screen and (min-width:769px)";
 
 @mixin sp {
   @media #{$sp} {
@@ -77,14 +77,6 @@ $pc: "only screen and (min-width:781px)";
 }
 
 //WEB font
-@mixin font-family {
-  font-family: "Yu Mincho", "YuMincho";
-
-  //  @supports (-ms-ime-align: auto) {
-  //    transform: rotate(0.001deg);
-  //  }
-  //
-  //  @media all and (-ms-high-contrast: none) {
-  //    transform: rotate(0.001deg);
-  //  }
+@mixin webfont {
+  font-family: "Sawarabi Mincho", serif;
 }

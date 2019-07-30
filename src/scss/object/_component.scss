@@ -5,26 +5,20 @@ grid/button/form/media...
 ---------------------------------------- */
 
 .c- {
-  &area {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
   &inner {
-    box-sizing: border-box;
-    width: $width-base + px;
-    max-width: 100%;
+    width: calc(100% - 30px);
+    max-width: $width-base + px;
     margin: 0 auto;
   }
 
   &box {
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
+    padding: 15px 20px;
+    background-color: #f8f8f9;
+    border-radius: 5px;
 
     &-flow {
-      margin-bottom: 2.4em;
       position: relative;
+      margin-bottom: 35px;
 
       &::before {
         display: block;
@@ -37,7 +31,7 @@ grid/button/form/media...
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: -1.6em;
+        bottom: -25px;
       }
 
       &:last-of-type {
@@ -46,19 +40,27 @@ grid/button/form/media...
         }
       }
     }
-  }
 
-  &title {
-    margin: 0;
-    font-size: $font-size-xl;
-    font-weight: bold;
-    text-align: center;
+    &-scroll {
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #aaa;
+        border-radius: 2px;
+      }
+
+      &::-webkit-scrollbar-track-piece {
+        background: #efefef;
+      }
+    }
   }
 
   &subTitle {
-    margin: 0;
-    font-size: $font-size-l;
-    font-weight: bold;
+    margin-bottom: 15px;
 
     &-iconSquare {
       position: relative;
@@ -85,9 +87,7 @@ grid/button/form/media...
     padding: 10px 15px;
     border: solid 1px $color-main;
     background-color: #fff;
-    color: $color-main;
     font-size: 1.6rem;
-    font-weight: bold;
     text-align: center;
   }
 
@@ -104,7 +104,7 @@ grid/button/form/media...
   &note {
     line-height: 1.8;
     padding-bottom: 3px;
-    border-bottom: solid 1px #000;
+    border-bottom: double 3px $color-main;
   }
 
   &paragraph {
@@ -114,20 +114,20 @@ grid/button/form/media...
 
   &definition {
     $self: &;
-    margin: 0;
-    overflow: hidden;
+
+    @include tbpc {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
     &_title {
       box-sizing: border-box;
-      font-weight: bold;
 
       @include tbpc {
-        float: left;
-        width: 90px;
-        margin-right: 10px;
+        width: 180px;
 
         &:not(:last-of-type) {
-          margin-bottom: 15px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -137,40 +137,57 @@ grid/button/form/media...
       margin-left: 0;
 
       &:not(:last-of-type) {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
       }
 
       @include tbpc {
-        float: left;
-        width: calc(100% - 100px);
+        width: calc(100% - 180px);
       }
     }
 
-    &-accent {
-      #{$self}_title {
-        padding: 5px 15px;
-        background-color: #fff;
-        text-align: center;
+    &-line {
+      @include sp {
+        #{$self}_title {
+          background-color: #f8f8f9;
+          padding-top: 4px;
+          padding-bottom: 4px;
+          padding-left: 20px;
+        }
+
+        #{$self}_description {
+          padding-top: 4px;
+          padding-bottom: 4px;
+          padding-left: 20px;
+        }
       }
 
-      #{$self}_description {
-        padding-top: 5px;
-        padding-bottom: 5px;
+      @include tbpc {
+        #{$self}_title {
+          padding-bottom: 10px;
+          padding-left: 20px;
+          border-bottom: solid 1px #d4d4d4;
+        }
+
+        #{$self}_description {
+          padding-bottom: 10px;
+          border-bottom: solid 1px #d4d4d4;
+        }
       }
     }
   }
 
   &order {
     $self: &;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
     list-style: none;
     counter-reset: li;
 
     #{$self} > &_list {
-      padding-left: 25px;
       position: relative;
+      padding-left: 1.6em;
+
+      &:not(:last-of-type) {
+        padding-bottom: 10px;
+      }
 
       &::before {
         counter-increment: li;
@@ -194,14 +211,12 @@ grid/button/form/media...
 
     &-circle {
       > #{$self}_list {
-        padding-left: 35px;
-        line-height: 30px;
+        padding-left: 2.4em;
 
         &::before {
           content: counter(li);
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
+          width: 1.8em;
+          height: 1.8em;
           border-radius: 50%;
           background: $color-usually;
           color: #fff;
@@ -216,18 +231,15 @@ grid/button/form/media...
 
   &unorder {
     $self: &;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
     list-style: none;
 
     #{$self} > &_list {
-      padding-left: 20px;
+      padding-left: 1.4em;
       position: relative;
 
       &::before {
         display: block;
-        content: '◆';
+        content: '\25C6'; //◆
         position: absolute;
         top: 0;
         left: 0;
@@ -238,7 +250,7 @@ grid/button/form/media...
     &-caution {
       > #{$self}_list {
         &::before {
-          content: '※';
+          content: '\203B'; //※
         }
       }
     }
@@ -246,7 +258,8 @@ grid/button/form/media...
     &-dotted {
       > #{$self}_list {
         &::before {
-          content: '・';
+          content: '\30FB'; //・
+          color: #000;
         }
       }
     }
@@ -257,20 +270,23 @@ grid/button/form/media...
     display: table;
     width: 100%;
 
+    &_inner {
+      display: table-row-group;
+    }
+
     &_item {
-      background-color: #fff;
       margin-top: -1px;
     }
 
     &_title,
     &_description {
       display: table-cell;
-      border: solid 1px $color-dark;
+      border: solid 1px $color-main;
       padding: 8px 25px;
     }
 
     &_title {
-      background-color: $color-main;
+      background-color: $color-base;
       font-weight: normal;
       text-align: center;
       vertical-align: middle;
@@ -280,165 +296,56 @@ grid/button/form/media...
       }
     }
 
-    @include sp {
-      display: block;
-
-      &_inner,
-      &_item,
-      &_title,
-      &_description {
+    &-response {
+      @include sp {
         display: block;
-        box-sizing: border-box;
-        width: 100%;
-      }
 
-      &_item {
-        border: 0;
-        margin-top: 0;
-      }
-
-      &_title,
-      &_description {
-        padding-top: 4px;
-        padding-bottom: 4px;
-        text-align: left;
-        border: none;
-      }
-    }
-
-    &-row {
-      #{$self}_item {
-        border-top: solid 1px $color-main;
-        border-bottom: solid 1px $color-main;
-
-        @include sp {
-          border: none;
+        #{$self}_inner,
+        #{$self}_item,
+        #{$self}_title,
+        #{$self}_description {
+          display: block;
+          box-sizing: border-box;
+          width: 100%;
         }
-      }
 
-      #{$self}_title,
-      #{$self}_description {
-        border: none;
-      }
+        #{$self}_item {
+          border: 0;
+          margin-top: 0;
+        }
 
-      #{$self}_title {
-        font-weight: bold;
-
-        @include pc {
-          width: 150px;
+        #{$self}_title,
+        #{$self}_description {
+          padding-top: 4px;
+          padding-bottom: 4px;
+          text-align: left;
+          border: none;
         }
       }
     }
   }
 
   &grid {
-    $self: &;
-    display: flex;
+    display: grid;
+    grid-gap: 12px;
 
-    &_item {
-      &:not(:last-of-type) {
-        margin-right: 15px;
-      }
-
-      &-liquid {
-        flex: 1;
-      }
-
-      &-row2 {
-        width: 50%;
-      }
-
-      &-row3 {
-        width: 33.33%;
-      }
-
-      &-alignCenter {
-        align-self: center;
-      }
+    &-col2 {
+      grid-template-columns: calc(50% - 6px) calc(50% - 6px);
     }
 
-    &-reverse {
-      flex-direction: row-reverse;
-
-      > #{$self}_item {
-        &:not(:last-of-type) {
-          margin-right: 0;
-          margin-left: 15px;
-        }
-      }
-    }
-
-    &-wrap {
-      flex-wrap: wrap;
-      margin-bottom: -15px;
-
-      > #{$self}_item {
-        box-sizing: border-box;
-        margin-right: 0;
-        margin-left: 0;
-        margin-bottom: 15px;
-      }
-    }
-
-    &-center {
-      justify-content: center;
+    &-col3 {
+      grid-template-columns: calc(33.3% - 8px) calc(33.3% - 8px) calc(33.3% - 8px);
     }
 
     &-onlyPc {
       @include sptb {
-        display: block;
-
-        > #{$self}_item {
-          &:not(:last-of-type) {
-            margin-right: 0;
-            margin-bottom: 15px;
-            margin-left: 0;
-          }
-        }
-
-        &#{$self}-wrap {
-          margin-bottom: 0;
-        }
-
-        > #{$self}_item-row2 {
-          width: 100%;
-        }
-
-        > #{$self}_item-row3 {
-          width: 100%;
-        }
+        grid-template-columns: 100%;
       }
     }
 
     &-onlyTbPc {
       @include sp {
-        display: block;
-
-        > #{$self}_item {
-          &:not(:last-of-type) {
-            margin-right: 0;
-            margin-bottom: 15px;
-            margin-left: 0;
-          }
-        }
-
-        &#{$self}-wrap {
-          margin-bottom: 0;
-        }
-
-        > #{$self}_item-row2 {
-          width: 100%;
-        }
-
-        > #{$self}_item-row3 {
-          width: 100%;
-        }
-      }
-
-      @include tb {
-        > #{$self}_item-row3 {
-          width: 50%;
-        }
+        grid-template-columns: 100%;
       }
     }
   }
@@ -491,12 +398,14 @@ grid/button/form/media...
   }
 
   &btn {
-    min-width: 160px;
+    box-sizing: border-box;
     display: inline-block;
+    min-width: 290px;
+    max-width: 450px;
     background-color: $color-usually;
-    padding: 0.6em 1.6em;
-    color: #fff !important;
     text-align: center;
+    color: #fff !important;
+    padding: 0.6em 1.6em;
     text-decoration: none;
 
     &:hover {
@@ -512,12 +421,6 @@ grid/button/form/media...
 
     &-round {
       border-radius: 50px;
-      border-bottom: solid 3px darken($color-usually, 10%);
-
-      &:hover {
-        margin-top: 3px;
-        border-bottom: none;
-      }
     }
 
     &-arrow {
@@ -528,10 +431,18 @@ grid/button/form/media...
         position: absolute;
         top: 0;
         bottom: 0;
-        margin: auto;
         right: 1.2em;
+        margin: auto;
         @include arrow(#fff);
         content: '';
+      }
+    }
+
+    &-shadow {
+      border-bottom: solid 3px darken($color-usually, 10%);
+      &:hover {
+        border-bottom: none;
+        transform: translateY(3px);
       }
     }
   }
@@ -562,6 +473,19 @@ grid/button/form/media...
     &-reverse {
       background-color: $color-main;
       color: #fff;
+    }
+  }
+
+  &pagetop {
+    display: none;
+    z-index: 98;
+    cursor: pointer;
+    transition: visibility 200ms 0s ease;
+
+    &-fixed {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
     }
   }
 
