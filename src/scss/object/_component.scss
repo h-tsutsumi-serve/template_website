@@ -326,26 +326,40 @@ grid/button/form/media...
   }
 
   &grid {
-    display: grid;
-    grid-gap: 12px;
+    $self: &;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &_item {
+      box-sizing: border-box;
+    }
 
     &-col2 {
-      grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+      #{$self}_item {
+        width: 49%;
+      }
     }
 
     &-col3 {
-      grid-template-columns: calc(33.3% - 8px) calc(33.3% - 8px) calc(33.3% - 8px);
+      #{$self}_item {
+        width: 33%;
+      }
     }
 
     &-onlyPc {
       @include sptb {
-        grid-template-columns: 100%;
+        #{$self}_item {
+          width: 100%;
+        }
       }
     }
 
     &-onlyTbPc {
       @include sp {
-        grid-template-columns: 100%;
+        #{$self}_item {
+          width: 100%;
+        }
       }
     }
   }
@@ -440,6 +454,7 @@ grid/button/form/media...
 
     &-shadow {
       border-bottom: solid 3px darken($color-usually, 10%);
+
       &:hover {
         border-bottom: none;
         transform: translateY(3px);
