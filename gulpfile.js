@@ -9,7 +9,7 @@ gulp.task('sass', () => {
   return gulp.src('./src/scss/*.+(scss)')
     .pipe(sass({importer: packageImporter({extensions: ['.scss', '.css']})}))
     .pipe(sass({outputStyle: 'expanded'}))
-    .pipe(postcss([autoprefixer({browsers: ['last 1 version'],grid: true,cascade: false})]))
+    .pipe(postcss([autoprefixer({grid: true,cascade: false})]))
     .pipe(postcss([cssdeclsort({order: 'smacss'})]))
     .pipe(gulp.dest('./static/assets/css/'));
 });
