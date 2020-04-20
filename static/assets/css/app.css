@@ -706,27 +706,32 @@ grid/button/form/media...
 }
 
 .c-grid {
-  grid-gap: 12px;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.c-grid-col2 {
-  grid-template-columns: calc(50% - 6px) calc(50% - 6px);
+.c-grid_item {
+  box-sizing: border-box;
 }
 
-.c-grid-col3 {
-  grid-template-columns: calc(33.3% - 8px) calc(33.3% - 8px) calc(33.3% - 8px);
+.c-grid-col2 .c-grid_item {
+  width: 49%;
+}
+
+.c-grid-col3 .c-grid_item {
+  width: 33%;
 }
 
 @media only screen and (max-width: 768px) {
-  .c-grid-onlyPc {
-    grid-template-columns: 100%;
+  .c-grid-onlyPc .c-grid_item {
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .c-grid-onlyTbPc {
-    grid-template-columns: 100%;
+  .c-grid-onlyTbPc .c-grid_item {
+    width: 100%;
   }
 }
 
@@ -973,6 +978,7 @@ header/main/sidebar/footer...
 
 @media only screen and (min-width: 769px) {
   .l-gnav_list {
+    -ms-grid-row-align: center;
     position: relative;
     flex: 1;
     align-self: center;

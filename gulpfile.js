@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
-    cssdeclsort = require('css-declaration-sorter'),
     autoprefixer = require('autoprefixer'),
+    cssdeclsort = require('css-declaration-sorter'),
     packageImporter = require('node-sass-package-importer');
 
 gulp.task('sass', () => {
