@@ -1,26 +1,37 @@
-$(window).on('load', function () {
+(function (d) {
+  var config = {
+      kitId: 'gpc4xxn',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h = d.documentElement,
+    t = setTimeout(function () {
+      h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+    }, config.scriptTimeout),
+    tk = d.createElement("script"),
+    f = false,
+    s = d.getElementsByTagName("script")[0],
+    a;
+  h.className += " wf-loading";
+  tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+  tk.async = true;
+  tk.onload = tk.onreadystatechange = function () {
+    a = this.readyState;
+    if (f || a && a != "complete" && a != "loaded") return;
+    f = true;
+    clearTimeout(t);
+    try {
+      Typekit.load(config)
+    } catch (e) {}
+  };
+  s.parentNode.insertBefore(tk, s)
+})(document);
 
+$(window).on('load', function () {
   //navi
   var current = false;
   var $gBtn = $('#js-gnavMenu');
   var $gNav = $('#js-gnav');
-  var $mainContents = $('main');
-
-  $('#js-gnav a[href^="#"]').click(function () {
-    var speed = 400;
-    var href = $(this).attr("href");
-    var target = $(href == "#" || href == "" ? 'html' : href);
-    var position = target.offset().top;
-
-    $gNav.stop().removeClass('is-enable');
-    $gBtn.removeClass('is-close');
-    current = false;
-
-    $('body,html').animate({
-      scrollTop: position
-    }, speed, 'swing');
-    return false;
-  });
 
   //sp
   $gBtn.on('click', function () {
@@ -38,32 +49,6 @@ $(window).on('load', function () {
     } else {
       return false;
     }
-  });
-
-  //pc
-  var GT = $gNav.offset().top;
-
-  function headerFixed() {
-    var ST = $(window).scrollTop();
-    var GH = $gNav.innerHeight();
-
-    if (ST > GT) {
-      $gNav.addClass('is-fixed');
-      $mainContents.css({
-        'margin-top': GH + 'px'
-      });
-
-    } else {
-      $gNav.removeClass('is-fixed');
-      $mainContents.css({
-        'margin-top': 0
-      });
-    }
-  }
-  headerFixed();
-
-  $(window).on('scroll resize', function () {
-    headerFixed();
   });
 
 

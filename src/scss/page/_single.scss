@@ -9,12 +9,54 @@ TOP
 ---------------------------------------- */
 .top- {
   &slider {
-    overflow: hidden;
     position: relative;
 
     &_container {
       max-width: $width-base + px;
-      overflow: visible !important;
+      overflow: visible;
+    }
+
+    &_item {
+      overflow: hidden;
+      border-radius: 30px;
+      margin-right: 5px;
+      margin-left: 5px;
+
+      @include sp {
+        border-radius: 10px;
+      }
+    }
+
+    &_button {
+      width: 50px;
+      height: 50px;
+      margin-top: -25px;
+      background-size: 50px 50px;
+
+      @include sp {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+        background-size: 40px 40px;
+      }
+    }
+
+    &_prev {
+      left: -30px;
+      background-image: url(#{$img-path}top/button-prev.svg);
+
+      @include sp {
+        left: -20px;
+      }
+    }
+
+    &_next {
+      right: -30px;
+      background-image: url(#{$img-path}top/button-next.svg);
+
+      @include sp {
+        right: -20px;
+      }
     }
   }
 }

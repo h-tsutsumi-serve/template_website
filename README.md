@@ -4,14 +4,31 @@ http://exsample.com/
 
 <br>
 
-### 素材
+## 推奨環境
 
-* デザインデータ・資料  
-`\\○○○\○○○`
+### Node.js
+
+> v10.15.3
+
+* gulp
+* sass
+* postcss
 
 <br>
 
-### 環境
+## セットアップ
 
-* sass
-* postcss
+```
+# 【初回のみ】install dependencies
+$ npm install
+```
+
+<br>
+
+## ビルド
+
+```
+# 【開発/ビルド/静的ファイル出力】
+$ npm run gulp watch
+```
+

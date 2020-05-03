@@ -1,82 +1,76 @@
 //----------------------------------------
 //変数
 //----------------------------------------
-$font-size-base: 1.5rem;
-$font-size-xs: 1.1rem;
+//font size
+$font-size-xl: 3rem;
+$font-size-l: 2.4rem;
+$font-size-base: 1.6rem;
 $font-size-s: 1.3rem;
-$font-size-l: 1.8rem;
-$font-size-xl: 2.0rem;
 
+//colors
+$color-white: #fff;
+$color-black: #000;
+$color-gray: #aaa;
+$color-lightgray: #efefef;
+$color-brown: #5B3737;
+$color-lightbrown: #FCF8EF;
+$color-orange: #FF8636;
+$color-lightorange: #ffefd2;
+$color-green: #73AE0D;
+$color-lightgreen: #E5F2D0;
+$color-yellow: #FFCE37;
+$color-lightyellow: #fff2c9;
+$color-red: #e8443d;
 
-$color-base: #f8f8f9 !default;
-$color-main: #d4d4d4 !default;
-$color-dark: #414141 !default;
-$color-usually: #5ac6e2 !default;
-$color-accent: #00be7d !default;
-$color-rarely: #ffefb4 !default;
-
-$width-base: 1020;
+$width-base: 1024;
 
 $img-path: "../images/";
 
 
 //メディアクエリ
-$sp: "only screen and (max-width:480px)";
-$sptb: "only screen and (max-width:768px)";
-$tb: "only screen and (min-width:481px) and (max-width:768px)";
-$tbpc: "only screen and (min-width:481px)";
-$pc: "only screen and (min-width:769px)";
+$sp: "567px";
+$tb: "768px";
+$ie: "-ms-high-contrast: none";
 
 @mixin sp {
-  @media #{$sp} {
+  @media only screen and (max-width: #{$sp}) {
     @content;
   }
 }
 
 @mixin sptb {
-  @media #{$sptb} {
+  @media only screen and (max-width:#{$tb}) {
     @content;
   }
 }
 
 @mixin tb {
-  @media #{$tb} {
+  @media only screen and (min-width:#{$sp}+1px) and (max-width:#{$tb}) {
     @content;
   }
 }
 
 @mixin tbpc {
-  @media #{$tbpc} {
+  @media only screen and (min-width:#{$sp}+1px) {
     @content;
   }
 }
 
 @mixin pc {
-  @media #{$pc} {
+  @media only screen and (min-width:#{$tb}+1px) {
     @content;
   }
 }
 
 //ハック
 @mixin ie {
-  @media all and (-ms-high-contrast: none) {
+  @media only screen and (#{$ie}) {
     /*IE*/
     @content;
   }
 }
 
-//矢印＞
-@mixin arrow($color) {
-  box-sizing: border-box;
-  display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
-  border-top: solid 2px $color;
-  border-right: solid 2px $color;
-  transform: rotate(45deg);
-}
-
 //WEB font
 @mixin webfont {
-  font-family: "Sawarabi Mincho", serif;
+  font-family: dnp-shuei-mgothic-std;
 }

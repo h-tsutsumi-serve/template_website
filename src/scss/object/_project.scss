@@ -7,4 +7,122 @@ articles/ranking/promo...
 ---------------------------------------- */
 
 .p- {
+  &logo {
+
+    &-header {
+      line-height: 1.4;
+      @include webfont;
+      text-align: center;
+    }
+
+    &-footer {
+      line-height: 1.4;
+      @include webfont;
+
+      &_sub {
+        display: block;
+        font-size: $font-size-s;
+      }
+
+      &_main {
+        display: block;
+        font-size: $font-size-l;
+      }
+    }
+  }
+
+  &address {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &_title {
+      width: 80px;
+      background-color: $color-white;
+      border-radius: 20px;
+      @include webfont;
+      text-align: center;
+      font-size: $font-size-s;
+
+      &:not(:last-of-type) {
+        margin-bottom: 5px;
+      }
+    }
+
+    &_description {
+      width: calc(100% - 80px - 15px);
+      margin-left: 0;
+      font-size: $font-size-s;
+
+      &:not(:last-of-type) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &hamburger {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background-color: $color-red;
+    cursor: pointer;
+
+    > span {
+      display: inline-block;
+      box-sizing: border-box;
+      width: 20px;
+      height: 2px;
+      background: $color-white;
+      border-radius: 2px;
+      transition: all 200ms 0s ease;
+      position: absolute;
+      color: #392b1d;
+
+      &:nth-child(1) {
+        top: 12px;
+      }
+
+      &:nth-child(2) {
+        top: 19px;
+      }
+
+      &:nth-child(3) {
+        bottom: 12px;
+      }
+    }
+
+    &.is-close > span {
+      &:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  &copyright {
+    @include webfont;
+    font-size: $font-size-s;
+    text-align: right;
+  }
+
+  &pagetop {
+    cursor: pointer;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 9999;
+
+    &:hover {
+      animation: bounce 2s ease-out infinite;
+      transform-origin: 50% 50%;
+    }
+  }
 }
